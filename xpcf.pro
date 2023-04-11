@@ -3,7 +3,7 @@ CONFIG -= app_bundle qt
 
 TARGET = xpcf
 FRAMEWORK = $${TARGET}
-VERSION=2.6.2
+VERSION=2.6.3
 
 DEFINES += XPCFVERSION=\\\"$${VERSION}\\\"
 
@@ -105,7 +105,8 @@ SOURCES += \
     src/Exception.cpp \
     src/PropertyManager.cpp \
     src/ConfigurableBase.cpp \
-    src/BaseTask.cpp
+    src/BaseTask.cpp \
+    src/ErrorMessage.cpp
 
 HEADERS += \
     interfaces/xpcf/api/IAliasManager.h \
@@ -130,6 +131,7 @@ HEADERS += \
     interfaces/private/xpcf/PropertyWrapper.h \
     interfaces/private/xpcf/PropertyManager.h \
     interfaces/xpcf/core/Result.h \
+    interfaces/xpcf/core/ErrorMessage.h \
     interfaces/xpcf/core/Exception.h \
     interfaces/xpcf/core/XPCFErrorCode.h \
     interfaces/xpcf/core/refs.h \
@@ -175,7 +177,7 @@ SOURCES += \
     src/GrpcManager.cpp
 
 HEADERS += \
-    src/GrpcManager.h \
+    interfaces/private/xpcf/src/GrpcManager.h \
     interfaces/xpcf/remoting/IGrpcServerManager.h \
     interfaces/xpcf/remoting/IGrpcService.h \
     interfaces/xpcf/remoting/GrpcHelper.h
