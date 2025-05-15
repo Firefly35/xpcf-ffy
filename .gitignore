@@ -50,3 +50,7 @@ CMakeLists.txt.user*
 *creator.user*
 
 *_qmlcache.qrc
+
+# Output directories
+.build/*
+libs/boost/*
