@@ -36,6 +36,7 @@
 #include <xpcf/api/IInjectable.h>
 #include <boost/filesystem.hpp>
 
+//#define BOOST_TEST_MAIN
 #define BOOST_TEST_MODULE test dynamic xpcf
 #include <boost/test/unit_test.hpp>
 
@@ -129,6 +130,7 @@ BOOST_FIXTURE_TEST_CASE( test_load_modules,XpcfFixture,* boost::unit_test::depen
 {
     xpcfComponentManager->load();
     SPtr<xpcf::ModuleMetadata> modMdata = xpcfComponentManager->findModuleMetadata(sampleComponentModuleUUID);
+    BOOST_TEST_MESSAGE("SampleComponent module metadata path : "<<modMdata->getPath());
     xpcfComponentManager->clear();
     BOOST_TEST_REQUIRE(xpcf::XPCFErrorCode::_SUCCESS == xpcfComponentManager->getFactory()->bindTo<xpcf::IRegistryManager>()->loadModules(modMdata->getPath())," failed to load modules from moduleMetadata");
     SPtr<xpcf::InterfaceMetadata> pI = xpcfComponentManager->findInterfaceMetadata(iid_IHuman);
